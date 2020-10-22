@@ -1,0 +1,32 @@
+.heading{
+    text-align:center;
+    text-decoration: underline;
+    font-size: 3em;
+    font-family: 'Lora';
+    padding: 1.5em;
+    color: darkgray;
+}
+
+.oddsTable{
+    margin-top: 10vh;
+}
+
+.oddsTable tr:nth-child(4n+1), .oddsTable tr:nth-child(4n+2){
+    background: lightgray;
+
+}
+
+.main-nav{
+    padding: 1em;
+}
+
+.sports-nav{
+    text-decoration: none;
+    padding: 1em;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.sports-nav a {
+    color: black;
+}

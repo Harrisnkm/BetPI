@@ -1,0 +1,25 @@
+{% extends 'layouts/master.html' %}
+
+{% block content %}
+
+    <h1 class="heading"> Odds and Probabilities </h1>
+
+    <div class="container">
+        <h3>Fractions</h3>
+        <p>Used primarily in the UK and Ireland, fractions quote the potential profit should the bet succeed, relative to the stake. For example if £5 is bet at odds of 2/1 the potential profit is £10 (£5 * 2) and the total returned is £15 (£10 plus the £5 stake).</p>
+
+        <h3>Decimals</h3>
+        <p>Decimals quote the potential return should the bet succeed, relative to the stake. For example if £5 is bet at odds of 3 the total returned is £15 (£5 * 3) the potential profit is £10 (£5 * 3 minus the £5 stake).</p>
+
+        <h4>American</h4>
+        <ul>
+            <li>Positive figures: The odds state the winnings on a £100 bet e.g. american odds of 110 would win £110 on a £100 bet.</li>
+            <li>Negative figures: The odds state how much must be bet to win £100 profit e.g. american odds of -90 would win £100 on a £90 bet./li>
+        </ul>
+
+        <h3>Implied Probability</h3>
+        <p>Odds correlate to probability e.g a 3/1 bet is expected to win one in every 4 attempts, hence the probability is 25%.</p>
+    </div>
+
+
+{% endblock %}

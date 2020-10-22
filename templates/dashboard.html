@@ -1,0 +1,42 @@
+{% extends 'layouts/master.html' %}
+
+{% block content %}
+{% load odds_converter %}
+
+<div class="container">
+    <h1 class="heading">BetPI Dashboard</h1>
+
+
+    <table class="table oddsTable table-borderless">
+        <thead class="thead-dark">
+            <th>Game</th>
+            <th>Time</th>
+            <th>Home Odds</th>
+            <th>Away Odds</th>
+            <th>Payouts</th>
+        </thead>
+
+        <tbody>
+            {% for game in sports %}
+                <tr>
+                    <td><b>{{game.home_team}} (H)</b></td>
+                    <td rowspan="2">{{ game.commence_time_formatted }}</td>
+                    <td>{{ game.best_home_odds.odds.h2h.0|decimalToAmerican|floatformat:'0' }}</td>
+                    <td>{{ game.best_away_odds.odds.h2h.0|decimalToAmerican|floatformat:'0' }}</td>
+                    <td><button class="btn btn-success">Calculate Payout</button></td>
+                </tr>
+                <tr>
+                    <td><b>{{game.away_team}} (A)</b></td>
+                    <td>{{ game.best_home_odds.odds.h2h.1|decimalToAmerican|floatformat:'0' }}</td>
+                    <td>{{ game.best_away_odds.odds.h2h.1|decimalToAmerican|floatformat:'0' }}</td>
+                    <td><button class="btn btn-success">Calculate Payout</button></td>
+                </tr>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock %}
