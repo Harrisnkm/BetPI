@@ -3,6 +3,7 @@ import requests
 import json
 from datetime import datetime
 import pygal
+from django.conf import settings
 
 '''
 General Functions
@@ -18,12 +19,14 @@ def loadJson(mode):
     if mode == 'file':
         #open json file
         odds = json.load(open('dashboard/json/odds.json'))
+
     else:
         #Set Parameters
-        api_key = 'd5070aa4159a6846cf209dcaa6e144da'
+        api_key = settings.BET_API_KEY
         sport_key = 'americanfootball_nfl'
         region_key = 'us'
         mkt_key = 'h2h'
+
 
         #JSON Request
         odds = requests.get('https://api.the-odds-api.com/v3/odds/', params={
@@ -32,7 +35,6 @@ def loadJson(mode):
             'region': region_key,
             'mkt': mkt_key
         })
-
 
 
     return odds.json()['data'] if mode == 'api' else odds['data']
@@ -89,7 +91,6 @@ def findOdds(games):
         #set reverse flag?
         #check if the home_team is not teams[0]
         if game['home_team'] != game['teams'][0]:
-            print('this should be reversed:'+ game['home_team'])
             reverse = True
 
 
