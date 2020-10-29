@@ -47,7 +47,7 @@ Dashboard Functions
 
 '''Root view for Dashboard'''
 def dashboard(request):
-    games = loadJson('api')
+    games = loadJson('file')
 
     games = findOdds(games)
     context = {'sports': games}
@@ -94,6 +94,8 @@ def findOdds(games):
             reverse = True
 
 
+        print(game['sites'][0])
+
 
         best_team1_odds = game['sites'][0]
         best_team2_odds = game['sites'][0]
@@ -127,7 +129,7 @@ Margins Functions
 
 '''Root view for margins'''
 def margins(request):
-    games = loadJson('api')
+    games = loadJson('file')
     createMarginsGraph(games)
     return render(request, 'margins.html', {})
 
